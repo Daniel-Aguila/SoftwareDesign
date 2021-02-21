@@ -13,7 +13,7 @@
     position:absolute;
 }
 
-.input-forms{
+.input-box{
     width:380px;
     height: 430px;
     position:relative;
@@ -61,14 +61,7 @@
 .input-info p{
     
     padding-top:20px;
-    color:white;
-}
-
-.input-info a{
-    text-decoration:none;
     color:black;
-    text-align:center;
-    font:10px;
 }
 
 .input-field{
@@ -84,6 +77,10 @@
 }
 
 .submit-btn{
+    text-decoration:none;
+    color:black;
+    text-align:center;
+    font:10px;
     width:85%;
     padding:10px 30px;
     cursor:pointer;
@@ -93,8 +90,30 @@
     border:0;
     outline:none;
     border-radius: 30px;
+    position:center;
 }
 
 #register{
     left:400px;
+}
+
+/*profile management styling*/
+.profile-box{
+    width:380px;
+    height: 800px;
+    position:relative;
+    margin:6% auto;
+    background-color:rgba(135, 206, 235, 0.8);
+    padding:5px;
+}
+
+.profile-manage h1{
+    text-align:center;
+    box-shadow: 0 0 20px 9px lightblue;
+    border-radius:30px;
+    border-bottom: 30px;
+}
+
+.profile-manage p{
+    padding-top:50px;
 }
