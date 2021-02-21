@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Fuel Form</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'static/form.js' %}">
+    </head>
+    <body>
+    <h1>Fuel Form</h1>
+        <form id="form-user" action="#" method="post">{% csrf_token %}
+            <div class="form-box error" data-errormsg="">
+                <label for="input-gallons"> Gallons requested </label>
+                <input type="number" id="input-gallons" required placeholder="Gallons requested [numeric]"/>
+            </div>
+
+            <div class="form-box">
+                <button id="button-cancel">Cancel</button>
+                <button id="button-send">Send</button>
+            </div>
+        </form>
+    </body>
+</html>

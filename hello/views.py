@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_protect
 
-def index(request):
-    context = {}
-    return render(request,'index.html',context)
+@csrf_protect
+def form(request):
+    return render(request,'form.html',{'form':form})
