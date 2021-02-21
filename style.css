@@ -117,3 +117,10 @@
 .profile-manage p{
     padding-top:50px;
 }
+
+.dropdown{
+    background-color:rgba(172, 231, 255, 0.76); 
+}
+.profile-manage span{
+    font-size:13px;
+}
