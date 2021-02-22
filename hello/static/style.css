@@ -1,84 +1,267 @@
 *{
     margin:0;
     padding:0;
+    font-family: sans-serif;
 }
 
-.container{
-    height: 100vh;
-    width: 100%;
-    background-image: url("images//photo-1489596162121-4a8e544d6de0.jfif");
+.background-pic{
+    height:100%;
+    width:100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("images//photo-1489596162121-4a8e544d6de0.jfif");
     background-position:center;
     background-size:cover;
-    padding-left: 5%;
-    padding-right:5%;
-    box-sizing:border-box;
+    position:absolute;
+}
+
+.fuel-form-title{
+    width: 1000px;
+    background-color: rgba(0,0,0,0.6);
+    margin: auto;
+    color:#FFFFFF;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 25px;
+}
+
+.fuel-form-div{
+    background-color: rgb(0,0,0,0.5);
+    width: 1000px;
+    margin: auto;
+}
+    form{
+        padding: 10px;
+    }
+    
+
+.gallons-requested{
+    color:white;
+    font-size: 20px;
+    left: 380px;
+    margin-left: 85px;
+    margin-top: 50px;
+}
+
+#input-gallons-input{
+    position:relative;
+    left: 185px;
+    top:100%;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+
+.deliver-address{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#input-address-input{
+    position:relative;
+    left: 203px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 450px;
+}
+
+.delivery-date{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#input-date-input{
+    position:relative;
+    left: 240px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+
+.price-per-gallon{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#input-price-input{
+    position:relative;
+    left: 210px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.total-due{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#total-due-input{
+    position:relative;
+    left: 210px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.buttons{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#button-cancel{
+    position:relative;
+    left: 300px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#button-send{
+    position:relative;
+    left: 300px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.input-box{
+    width:380px;
+    height: 430px;
+    position:relative;
+    margin:6% auto;
+    background-color:rgba(135, 206, 235, 0.8);
+    padding:5px;
+}
+
+.button-box{
+    width:220px;
+    margin:35px auto;
+    position:relative;
+    box-shadow: 0 0 20px 9px lightblue;
+    border-radius:30px;
+}
+
+
+.toggle-btn{
+    padding:10px 30px;
+    cursor:pointer;
+    background: transparent;
+    border:0;
+    outline:none;
     position:relative;
 }
 
-.loginbox{
-    width:320px;
-    height: 380px;
-    background:#000;
-    color:#fff;
-    top:50%;
-    left:50%;
+#btn{
+    top:0;
+    left:0;
     position:absolute;
-    transform: translate(-50%,-50%);
-    box-sizing: border-box;
-    padding: 50px 30px;
+    width:110px;
+    height:100%;
+    background:linear-gradient(to right,lightseagreen,rgb(109, 223, 109)); 
+    border-radius:30px;
+    transition:.5s;
 }
 
-h1{
-    margin:0;
-    padding:0 0 20px;
-    text-align:center;
-    font-size:30px;
-
+.input-info{
+    top:80px;
+    position:absolute;
+    width:280px;
+    transition:.5s;
+    padding:50px;
 }
 
-.loginbox p{
-    font-weight:bold;
+.input-info p{
+    
+    padding-top:20px;
+    color:black;
 }
 
-.loginbox input{
+.input-field{
     width:100%;
-    margin-bottom:20px;
-}
-
-.loginbox input[type="text"],input[type="password"]{
-    border:none;
-    border-bottom:1px solid #fff;
+    padding:10px 0;
+    margin:5px 0;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    border-bottom: 1px solid white;
+    outline:none;
     background:transparent;
-    outline:none;
-    height: 40px;
-    font-size:16px;
-    color: #fff;
-
 }
 
-.loginbox input[type="submit"]{
-    border:none;
-    outline:none;
-    height:40px;
-    background:lightseagreen;
-    color:#fff;
-    font-size: 18px;
-    border-radius: 20px;
-}
-
-.loginbox input[type="submit"]:hover{
-    cursor:pointer;
-    background: darkseagreen;
-    color: #000;
-}
-
-.loginbox a{
+.submit-btn{
     text-decoration:none;
-    font-size: 15px;
-    line-height:20px;
-    color:lightslategrey;
+    color:black;
+    text-align:center;
+    font:10px;
+    width:85%;
+    padding:10px 30px;
+    cursor:pointer;
+    display:block;
+    margin-top:50px;
+    background:linear-gradient(to right,lightseagreen,rgb(109, 223, 109));
+    border:0;
+    outline:none;
+    border-radius: 30px;
+    position:center;
 }
 
-.loginbox a:hover{
-    color:darkseagreen;
+#register{
+    left:400px;
+}
+
+/*profile management styling*/
+.profile-box{
+    width:380px;
+    height: 800px;
+    position:relative;
+    margin:6% auto;
+    background-color:rgba(135, 206, 235, 0.8);
+    padding:5px;
+}
+
+.profile-manage h1{
+    text-align:center;
+    box-shadow: 0 0 20px 9px lightblue;
+    border-radius:30px;
+    border-bottom: 30px;
+}
+
+.profile-manage p{
+    padding-top:50px;
+}
+
+.dropdown{
+    background-color:rgba(172, 231, 255, 0.76); 
+}
+.profile-manage span{
+    font-size:13px;
 }

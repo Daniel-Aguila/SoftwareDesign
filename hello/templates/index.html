@@ -2,20 +2,48 @@
     <head>
         <title>Predict Rate of Fuel</title>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     </head>
     <body>
-        <div class="container"></div>
-        <div class="loginbox">
-            <h1>Login Here</h1>
-            <form>
-                <p>Username:</p>
-                <input type="text" name="" placeholder="Enter Username">
-                <p>Password:</p>
-                <input type="password" name="" placeholder="Enter Password">
-                <input type="submit" name="" value="Login">
-                <a href="#">Register Here</a>
-            </form>
+        <div class="background-pic">
+            <div class="input-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                </div>
+                <form id="login" class="input-info">
+                    <p>Username:</p>
+                    <input type="text" class="input-field" placeholder="Enter Username">
+                    <p>Password:</p>
+                    <input type="password" class="input-field" placeholder="Enter Password">
+                    <a href="{% url 'profile' %}" class="submit-btn">Log In</a>
+                </form>
+                <form id="register" class="input-info">
+                    <p>Set Username:</p>
+                    <input type="text" class="input-field" placeholder="Enter Username">
+                    <p>Set Password:</p>
+                    <input type="password" class="input-field" placeholder="Enter Password">
+                    <a href="{% url 'home' %}" class="submit-btn">Register</a> 
+                </form>
+            </div>
         </div>
+        <script>
+            var x=document.getElementById("login");
+            var y=document.getElementById("register");
+            var z=document.getElementById("btn");
+
+            function register(){
+                x.style.left="-400px";
+                y.style.left="15px";
+                z.style.left="110px";
+            }
+
+            function login(){
+                x.style.left="0";
+                y.style.left="400px";
+                z.style.left="0";
+            }
+        </script>
     </body>
 </html>

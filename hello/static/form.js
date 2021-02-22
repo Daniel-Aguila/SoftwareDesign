@@ -12,17 +12,35 @@ const send = function(ev){
     ev.preventDefault();
     ev.stopPropagation();
 
-    let ret = validate();
+    let fails = validate();
 
-    if(ret){
+    if(fails.length===0){
         //good
         document.getElementById('form-user').submit();
     }
     else{
         //bad
+        fails.forEach(function(obj){
+            let field = document.getElementById(obj.input);
+            field.parentElement.classList.add('error');
+            field.parentElement.setAttribute('data-errormsg', obj.msg);
+        })
     }
 }
 
-const validate = function(ev){}
+const validate = function(ev){
 
-document.addEventListener('DOMContentLoaded',init)
+    let failures = [];
+    let gallons = document.getElementById("input-gallons");
+    var gal_Value = gallons.value;
+    let address = document.getElementById("input-address");
+    if(gal_Value < 0){
+        failures.push({input:'input-gallons', msg:'not enough'});
+    }
+    if(address.value === ""){
+        failures.push({input:'input-address',msg:'Required Field'});
+    }
+    return failures;
+}
+
+document.addEventListener('DOMContentLoaded',init);
