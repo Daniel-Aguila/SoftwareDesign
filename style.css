@@ -13,6 +13,146 @@
     position:absolute;
 }
 
+.fuel-form-title{
+    width: 1000px;
+    background-color: rgba(0,0,0,0.6);
+    margin: auto;
+    color:#FFFFFF;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 25px;
+}
+
+.fuel-form-div{
+    background-color: rgb(0,0,0,0.5);
+    width: 1000px;
+    margin: auto;
+}
+    form{
+        padding: 10px;
+    }
+    
+
+.gallons-requested{
+    color:white;
+    font-size: 20px;
+    left: 380px;
+    margin-left: 85px;
+    margin-top: 50px;
+}
+
+#input-gallons-input{
+    position:relative;
+    left: 185px;
+    top:100%;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+
+.deliver-address{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#input-address-input{
+    position:relative;
+    left: 203px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 450px;
+}
+
+.delivery-date{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#input-date-input{
+    position:relative;
+    left: 240px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+}
+
+.price-per-gallon{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#input-price-input{
+    position:relative;
+    left: 210px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.total-due{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#total-due-input{
+    position:relative;
+    left: 210px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.buttons{
+    margin-left: 85px;
+    margin-top: 50px;
+    left: 380px;
+    color:white;
+    font-size: 20px;
+}
+
+#button-cancel{
+    position:relative;
+    left: 300px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#button-send{
+    position:relative;
+    left: 300px;
+    line-height:40px;
+    border-radius: 6px;
+    padding: 0 22px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
 .input-box{
     width:380px;
     height: 430px;
@@ -29,6 +169,7 @@
     box-shadow: 0 0 20px 9px lightblue;
     border-radius:30px;
 }
+
 
 .toggle-btn{
     padding:10px 30px;
@@ -100,7 +241,7 @@
 /*profile management styling*/
 .profile-box{
     width:380px;
-    height: 850px;
+    height: 800px;
     position:relative;
     margin:6% auto;
     background-color:rgba(135, 206, 235, 0.8);
@@ -116,7 +257,6 @@
 
 .profile-manage p{
     padding-top:50px;
-
 }
 
 .dropdown{
