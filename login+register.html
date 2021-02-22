@@ -11,19 +11,19 @@
                     <button type="button" class="toggle-btn" onclick="login()">Log In</button>
                     <button type="button" class="toggle-btn" onclick="register()">Register</button>
                 </div>
-                <form id="login" class="input-info">
+                <form id="login" class="input-info" action="profile-management.html">
                     <p>Username:</p>
-                    <input type="text" class="input-field" placeholder="Enter Username">
+                    <input type="text" class="input-field" placeholder="Enter Username" required>
                     <p>Password:</p>
-                    <input type="password" class="input-field" placeholder="Enter Password">
-                    <a href="profile-management.html" class="submit-btn">Log In</a>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="submit" class="submit-btn" value="Log In">
                 </form>
-                <form id="register" class="input-info">
+                <form id="register" class="input-info" action="login+register.html">
                     <p>Set Username:</p>
-                    <input type="text" class="input-field" placeholder="Enter Username">
+                    <input type="text" class="input-field" placeholder="Enter Username" required>
                     <p>Set Password:</p>
-                    <input type="password" class="input-field" placeholder="Enter Password">
-                    <a href="login+register.html" class="submit-btn">Register</a> 
+                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                    <input type="submit" class="submit-btn" value="Register">
                 </form>
             </div>
         </div>

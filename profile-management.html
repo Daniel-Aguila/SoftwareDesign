@@ -8,7 +8,7 @@
             <div class="profile-box">
                 <div class="profile-manage">
                     <h1>Profile Management</h1>
-                    <form>
+                    <form action="fuel-quotes.html">
                         <p>Full Name:</p>
                         <input type="text" class="input-field" placeholder="Enter Full Name" minlength="50" required>
                         <p>Address 1:</p>
@@ -18,7 +18,7 @@
                         <p>City:</p>
                         <input type="text" class="input-field" placeholder="Enter City" minlength="100" required>
                         <p>State:</p>
-                        <select name="states" id="states" class="dropdown" required>
+                        <select name="states" id="states" class="dropdown" multiple required>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -73,7 +73,7 @@
                         </select>
                         <p>Zipcode:</p>
                         <input type="text" class="input-field" placeholder="Enter Zipcode" maxlength="9" minlength="5" required>
-                        <a href="fuel-quotes.html" class="submit-btn">Register</a> 
+                        <input type="submit" class="submit-btn" value="Save"></input> 
                     </form>
                 </div>
             </div>
