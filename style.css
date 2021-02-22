@@ -100,7 +100,7 @@
 /*profile management styling*/
 .profile-box{
     width:380px;
-    height: 800px;
+    height: 850px;
     position:relative;
     margin:6% auto;
     background-color:rgba(135, 206, 235, 0.8);
@@ -116,6 +116,7 @@
 
 .profile-manage p{
     padding-top:50px;
+
 }
 
 .dropdown{
