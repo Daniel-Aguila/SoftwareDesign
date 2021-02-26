@@ -1,12 +1,11 @@
 <html>
     <head>
         <title>Fuel Form</title>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
     <div class="fuel-form-title">
-    {% block title %}<h1>Fuel Form</h1>{% endblock %}
+    <h1>Fuel Form</h1>
     </div>
 
     <div class="background-pic">
@@ -56,7 +55,5 @@
         </form>
         </div>
     </div>
-        <script type="text/javascript" src="{% static 'form.js' %}"></script>
-        {% block body %} {% endblock %}
     </body>
 </html>
