@@ -11,3 +11,6 @@ def profile(request):
 @csrf_protect
 def form(request):
     return render(request,'form.html',{'form':form})
+
+def history(request):
+    return render(request, 'fuelQuoteHistory.html')
