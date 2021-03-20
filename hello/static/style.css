@@ -265,3 +265,37 @@
 .profile-manage span{
     font-size:13px;
 }
+
+/* Fuel Quote History Styling */
+#quoteTable{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background-color: rgba(135, 206, 235, 0.8);
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 3%;
+    padding-left: 5%;
+    padding-right:5%;
+}
+
+#dummyEntry{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.quote-history {
+    margin-top: 2%;
+}
+
+.quote-history h1{
+    text-align: center;
+    box-shadow: 0 0 20px 9px lightblue;
+    border-radius:30px;
+    border-bottom: 30px;
+    background-color: rgba(135, 206, 235, 0.8);
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+}
