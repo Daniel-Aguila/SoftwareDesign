@@ -12,19 +12,16 @@
                     <button type="button" class="toggle-btn" onclick="login()">Log In</button>
                     <button type="button" class="toggle-btn" onclick="register()">Register</button>
                 </div>
-                <form id="login" class="input-info">
-                    <p>Username:</p>
-                    <input type="text" class="input-field" placeholder="Enter Username">
-                    <p>Password:</p>
-                    <input type="password" class="input-field" placeholder="Enter Password">
-                    <a href="{% url 'profile' %}" class="submit-btn">Log In</a>
+
+                <form id="login" class="input-info" method="post">
+                {% csrf_token %}
+                {{form}}
+                    <button type="submit" class="submit-btn" value="Login" name="submit"><a href="{% url 'login' %}">Login</button>
                 </form>
-                <form id="register" class="input-info">
-                    <p>Set Username:</p>
-                    <input type="text" class="input-field" placeholder="Enter Username">
-                    <p>Set Password:</p>
-                    <input type="password" class="input-field" placeholder="Enter Password">
-                    <a href="{% url 'home' %}" class="submit-btn">Register</a> 
+                <form id="register" class="input-info" method="post">
+                {% csrf_token %}
+                {{form}}
+                    <button type="submit" class="submit-btn" value="Sign Up" name="submit" ><a href="{% url 'signup' %}">Sign Up</button>
                 </form>
             </div>
         </div>
