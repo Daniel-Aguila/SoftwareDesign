@@ -30,3 +30,5 @@ def form(request):
 @login_required
 def profile(request):
     return render(request, 'profile-management.html')
+def history(request):
+    return render(request, 'fuelQuoteHistory.html')

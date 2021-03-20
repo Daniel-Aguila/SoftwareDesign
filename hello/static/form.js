@@ -1,7 +1,7 @@
-const init = function(){
-    document.getElementById('button-cancel').addEventListener('click',reset);
-    document.getElementById('button-send').addEventListener('click',send);
-}
+// const init = function(){
+//     document.getElementById('button-cancel').addEventListener('click',reset);
+//     document.getElementById('button-send').addEventListener('click',send);
+// }
 
 const reset = function(ev){
     ev.preventDefault();
@@ -31,9 +31,9 @@ const send = function(ev){
 const validate = function(ev){
 
     let failures = [];
-    let gallons = document.getElementById("input-gallons");
+    let gallons = document.getElementById("input-gallons"); // extract gallons entry
     var gal_Value = gallons.value;
-    let address = document.getElementById("input-address");
+    let address = document.getElementById("input-address"); // extract address
     if(gal_Value < 0){
         failures.push({input:'input-gallons', msg:'not enough'});
     }
@@ -43,4 +43,28 @@ const validate = function(ev){
     return failures;
 }
 
-document.addEventListener('DOMContentLoaded',init);
+//document.addEventListener('DOMContentLoaded',init);
+
+// -----------
+
+document.querySelector('#input-gallons-input').value = 0;
+
+const submit = document.querySelector('#form-submit');
+
+submit.addEventListener('click', function(e) {
+    e.preventDefault();
+  
+    alert('HELLO')//TARGET MESSAGE
+    let gallonsInput = document.querySelector('#input-gallons-input').value; 
+    if (gallonsInput < 1)
+    {
+        alert('Please input valid number of gallons')
+        return;
+    }
+    else
+    {
+        alert('SUBMIT SUCCESS');
+        let historyRedirect = 'http://' + window.location.host + '/history';
+        window.location.href = historyRedirect;
+    }
+})
