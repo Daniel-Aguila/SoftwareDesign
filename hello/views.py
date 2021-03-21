@@ -6,22 +6,36 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+from .forms import registerForm
+from django.template.loader import get_template
+from django.template import Context
 
 def home(request):
     return render(request,'index.html')
 
-def signup(request):
-    context = {}
-    form = UserCreationForm(request.POST or None)
-    if request.method == "POST":
+def signup(response):
+    if response.method == "POST":
+        form = registerForm(response.POST)
         if form.is_valid():
-            user = form.save()
-            login(request,user)
-            return render(request,'profile-management.html')
-    context['form']=form
-    return render(request,'signup.html',context)
+            form.save()
+        return render(response,"index.html")
+    else:
+        form = registerForm()
+    return render(response, "signup.html", {"form":form})
 
+def login(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request,username=username, password=password)
+        if user is not None:
+            form = login(request, user)
+            messages.success(request, f'welcome {username}')
+            return redirect('profile')
+        else:
+            messages.info(request,f'account does not exit')
+    form = AuthenticationForm()
+    return render(request,'registration/login.html',{'form':form, 'title':'login'})
 
 @csrf_protect
 def form(request):

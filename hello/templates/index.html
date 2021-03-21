@@ -14,14 +14,12 @@
                 </div>
 
                 <form id="login" class="input-info" method="post">
-                {% csrf_token %}
-                {{form}}
-                    <button type="submit" class="submit-btn" value="Login" name="submit"><a href="{% url 'login' %}">Login</button>
+                    {% csrf_token %}
+                    <a href="{% url 'login' %}" class="submit-btn" name="submit">Login</a>
                 </form>
                 <form id="register" class="input-info" method="post">
-                {% csrf_token %}
-                {{form}}
-                    <button type="submit" class="submit-btn" value="Sign Up" name="submit" ><a href="{% url 'signup' %}">Sign Up</button>
+                    {% csrf_token %}
+                <a href="{% url 'signup' %}" class="submit-btn" name="submit">Sign Up</a>
                 </form>
             </div>
         </div>

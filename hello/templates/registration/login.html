@@ -1,0 +1,10 @@
+<h1>Login</h1>
+{% load bootstrap4 %}
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p }}
+    {% buttons %}
+    <input type="submit" class="submit-btn" value="Login">
+    {% endbuttons %}
+</form>
