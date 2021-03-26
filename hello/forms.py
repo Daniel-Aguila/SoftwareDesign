@@ -2,6 +2,7 @@ from django import forms
 from localflavor.us.forms import USStateSelect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .import models
 
 class profileManage(forms.Form):
     fullName=forms.CharField(max_length=50)
@@ -14,4 +15,9 @@ class registerForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username","password1"]
+
+class FuelQuoteForm(forms.ModelForm):
+    class Meta:
+        model = models.Quote
+        fields = ['gallonsReq','fullAddress','deliveryDate']
 
