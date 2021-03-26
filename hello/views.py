@@ -40,13 +40,7 @@ def login(request):
 
 @csrf_protect
 def form(request):
-    if request.method == 'POST':
-        form = forms.FuelQuoteForm(request.POST)
-        if form.is_valid():
-            # SAVE TO DB
-            return redirect('history')
-    else:
-        form = forms.FuelQuoteForm()
+
     return render(request,'form.html',{'form':form})
 
 @login_required
