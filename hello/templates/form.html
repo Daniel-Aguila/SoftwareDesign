@@ -13,8 +13,8 @@
 
     <div class="background-pic">
         <div class="fuel-form-div">
-            <form id="form-user" action="#" method="post">{% csrf_token %}
-                <div class="form-box" data-errormsg="">
+            <form id="form-user" action="" method="post">{% csrf_token %}
+                <!-- <div class="form-box" data-errormsg="">
                     <h1 class="gallons-requested">
                         <label for="input-gallons-input">Gallons requested</label>
                         <input type="number" id="input-gallons-input" required
@@ -35,7 +35,9 @@
                         <label for="input-date-input"> Delivery date </label>
                         <input type="date" id="input-date-input" required placeholder="Delviery date" />
                     </h1>
-                </div>
+                </div> -->
+
+                {{ form }}
 
                 <!-- <div class="form-box" data-errormsg="">
                     <h1 class="price-per-gallon">
