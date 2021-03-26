@@ -3,67 +3,80 @@
 //     document.getElementById('button-send').addEventListener('click',send);
 // }
 
-const reset = function(ev){
-    ev.preventDefault();
-    document.getElementById('form-user').reset();
-}
+// const reset = function(ev){
+//     ev.preventDefault();
+//     document.getElementById('form-user').reset();
+// }
 
-const send = function(ev){
-    ev.preventDefault();
-    ev.stopPropagation();
+// const send = function(ev){
+//     ev.preventDefault();
+//     ev.stopPropagation();
 
-    let fails = validate();
+//     let fails = validate();
 
-    if(fails.length===0){
-        //good
-        document.getElementById('form-user').submit();
-    }
-    else{
-        //bad
-        fails.forEach(function(obj){
-            let field = document.getElementById(obj.input);
-            field.parentElement.classList.add('error');
-            field.parentElement.setAttribute('data-errormsg', obj.msg);
-        })
-    }
-}
+//     if(fails.length===0){
+//         //good
+//         document.getElementById('form-user').submit();
+//     }
+//     else{
+//         //bad
+//         fails.forEach(function(obj){
+//             let field = document.getElementById(obj.input);
+//             field.parentElement.classList.add('error');
+//             field.parentElement.setAttribute('data-errormsg', obj.msg);
+//         })
+//     }
+// }
 
-const validate = function(ev){
+// const validate = function(ev){
 
-    let failures = [];
-    let gallons = document.getElementById("input-gallons"); // extract gallons entry
-    var gal_Value = gallons.value;
-    let address = document.getElementById("input-address"); // extract address
-    if(gal_Value < 0){
-        failures.push({input:'input-gallons', msg:'not enough'});
-    }
-    if(address.value === ""){
-        failures.push({input:'input-address',msg:'Required Field'});
-    }
-    return failures;
-}
+//     let failures = [];
+//     let gallons = document.getElementById("input-gallons"); // extract gallons entry
+//     var gal_Value = gallons.value;
+//     let address = document.getElementById("input-address"); // extract address
+//     if(gal_Value < 0){
+//         failures.push({input:'input-gallons', msg:'not enough'});
+//     }
+//     if(address.value === ""){
+//         failures.push({input:'input-address',msg:'Required Field'});
+//     }
+//     return failures;
+// }
 
 //document.addEventListener('DOMContentLoaded',init);
 
 // -----------
+let gallonsValue, addressValue, dateValue;
 
 document.querySelector('#input-gallons-input').value = 0;
-
-const submit = document.querySelector('#form-submit');
+const submit = document.querySelector('#button-send');
 
 submit.addEventListener('click', function(e) {
     e.preventDefault();
   
-    alert('HELLO')//TARGET MESSAGE
-    let gallonsInput = document.querySelector('#input-gallons-input').value; 
+    let gallonsInput = document.querySelector('#input-gallons-input').value;
+    let dateInput = document.querySelector('#input-date-input').value; 
     if (gallonsInput < 1)
     {
-        alert('Please input valid number of gallons')
+        alert('Please input valid number of gallons');
         return;
+    }
+    else if (dateInput == "")
+    {
+        alert('Please select a delivery date');
     }
     else
     {
-        alert('SUBMIT SUCCESS');
+        gallonsValue = gallonsInput;    // load inputs
+        addressValue = document.querySelector('#input-address-input').value;
+        dateValue = document.querySelector('#input-date-input').value;
+
+        let suggestedPrice = 9.99; // HARDCODED VALUE: REPLACE
+        let totalDue = 99.90 // HARDCODED VALUE: REPLACE
+
+        alert(`Suggested Price: ${suggestedPrice}
+        Total Amount Due: ${totalDue}`);
+
         let historyRedirect = 'http://' + window.location.host + '/history';
         window.location.href = historyRedirect;
     }
