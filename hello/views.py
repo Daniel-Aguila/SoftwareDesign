@@ -7,6 +7,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import registerForm
+from .import forms
 from django.template.loader import get_template
 from django.template import Context
 
@@ -39,6 +40,13 @@ def login(request):
 
 @csrf_protect
 def form(request):
+    if request.method == 'POST':
+        form = forms.FuelQuoteForm(request.POST)
+        if form.is_valid():
+            # SAVE TO DB
+            return redirect('history')
+    else:
+        form = forms.FuelQuoteForm()
     return render(request,'form.html',{'form':form})
 
 @login_required
@@ -46,3 +54,5 @@ def profile(request):
     return render(request, 'profile-management.html')
 def history(request):
     return render(request, 'fuelQuoteHistory.html')
+
+
