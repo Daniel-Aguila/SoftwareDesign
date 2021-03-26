@@ -13,49 +13,6 @@
 
     <div class="background-pic">
         <div class="fuel-form-div">
-        <form id="form-user" action="#" method="post">{% csrf_token %}
-            <div class="form-box" data-errormsg="">
-            <h1 class="gallons-requested">
-                <label for="input-gallons-input">Gallons requested</label>
-                <input type="number" id="input-gallons-input" required placeholder="Gallons requested [numeric]"/>
-                </h1> 
-            </div>
-
-            <div class="form-box" data-errormsg="">
-            <h1 class="deliver-address">
-                <label for="input-address-input">Delivery address</label>
-                <input type="text" id="input-address-input" value="Address" readonly placeholder="Delivery address"/>
-                </h1>
-            </div>
-            
-            <div class="form-box" data-errormsg="">
-            <h1 class="delivery-date">
-                <label for="input-date-input"> Delivery date </label>
-                <input type="date" id="input-date-input" required placeholder="Delviery date"/>
-                </h1>
-            </div>
-
-            <div class="form-box" data-errormsg="">
-            <h1 class="price-per-gallon">
-                <label for="input-price-input"> Suggested price</label>
-                <input type="text" id="input-price-input" value="Gas price / gallon" readonly placeholder="Gas price / gallon"/>
-            </h1>
-            </div>
-
-            <div class="form-box" data-errormsg="">
-            <h1 class="total-due">
-                <label for="total-price-input"> Total Amount Due</label>
-                <input type="text" id="total-due-input" value="Total-due" readonly placeholder="Total due"/>
-            </h1>
-            </div>
-
-            <div class="form-box">
-            <h1 class="buttons">
-                <button id="button-cancel">Cancel</button>
-                <button id="button-send">Send</button>
-                </h1>
-            </div>
-        </form>
             <form id="form-user" action="#" method="post">{% csrf_token %}
                 <div class="form-box" data-errormsg="">
                     <h1 class="gallons-requested">
@@ -68,8 +25,7 @@
                 <div class="form-box" data-errormsg="">
                     <h1 class="deliver-address">
                         <label for="input-address-input">Delivery address</label>
-                        <input type="text" id="input-address-input"
-                             readonly
+                        <input type="text" id="input-address-input" value="Address" readonly
                             placeholder="Delivery address" />
                     </h1>
                 </div>
@@ -81,7 +37,7 @@
                     </h1>
                 </div>
 
-                <div class="form-box" data-errormsg="">
+                <!-- <div class="form-box" data-errormsg="">
                     <h1 class="price-per-gallon">
                         <label for="input-price-input"> Suggested price</label>
                         <input type="text" id="input-price-input" value="Gas price / gallon" readonly
@@ -91,20 +47,19 @@
 
                 <div class="form-box" data-errormsg="">
                     <h1 class="total-due">
-                        <label for="total-price-input"> Suggested price</label>
+                        <label for="total-price-input"> Total Amount Due</label>
                         <input type="text" id="total-due-input" value="Total-due" readonly placeholder="Total due" />
                     </h1>
-                </div>
+                </div> -->
 
                 <div class="form-box">
                     <h1 class="buttons">
-                        <!-- <button id="button-cancel">Cancel</button> -->
-                        <a href="{% url 'history' %}" id="form-submit">Submit</a>
-                        <!-- <button href="{% url 'history' %}" id="button-send">Send</button> -->
+                        <button id="button-cancel">Cancel</button>
+                        <button id="button-send">Send</button>
                     </h1>
                 </div>
-                <!-- <a href="{% url 'history' %}" id="button-send">Log In</a> -->
             </form>
+            
         </div>
     </div>
     <script type="text/javascript" src="{% static 'form.js' %}"></script>
