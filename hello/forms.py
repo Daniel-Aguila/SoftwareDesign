@@ -8,3 +8,4 @@ class registerForm(UserCreationForm):
         model = User
         fields = ["username","password1"]
 
+
