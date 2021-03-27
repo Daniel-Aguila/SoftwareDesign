@@ -11,36 +11,41 @@ from .import forms
 from django.template.loader import get_template
 from django.template import Context
 from .models import Register
+import logging
 
 def home(request):
     return render(request,'index.html')
 
 def signup(response):
-    if response.method == "POST":
-        form = registerForm(response.POST)
-        if form.is_valid():
+    form = registerForm(response.POST)
+    if response.method == "POST" and form.is_valid():
             user=form.cleaned_data['username']
-            passd=form.cleaned_data['password']
-            newPerson = Register(user,passd)
-            newPerson.save()
-        return render(response,"index.html")
-    else:
-        form = registerForm()
+            passd=form.cleaned_data['password1']
+            newPerson = Register(username=user,password=passd)
+            newPerson.save(force_insert=True)
+            form.save()
+
+            return render(response,"index.html")
+
     return render(response, "signup.html", {"form":form})
 
-def login(request):
+def loginpage(request):
+
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(request,username=username, password=password)
+
+        logging.debug("hello")
+
         if user is not None:
-            form = login(request, user)
-            messages.success(request, f'welcome {username}')
+
+            login(request, user)
             return redirect('profile')
-        else:
-            messages.info(request,f'account does not exit')
-    form = AuthenticationForm()
-    return render(request,'registration/login.html',{'form':form, 'title':'login'})
+
+
+    return render(request,'login.html',{'form':form, 'title':'login'})
 
 @csrf_protect
 def form(request):

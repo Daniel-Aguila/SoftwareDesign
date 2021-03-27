@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-#from .models import fuelQuote
+from .models import Register
 
-#admin.site.register(fuelQuote)
+admin.site.register(Register)
