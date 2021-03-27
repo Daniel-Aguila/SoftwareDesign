@@ -37,6 +37,8 @@ def loginpage(request):
         password = request.POST.get('password')
         user = authenticate(request,username=username, password=password)
 
+        logging.debug("hello")
+
         if user is not None:
 
             login(request, user)
@@ -47,7 +49,13 @@ def loginpage(request):
 
 @csrf_protect
 def form(request):
-
+    if request.method == 'POST':
+        form = forms.FuelQuoteForm(request.POST)
+        if form.is_valid():
+            # SAVE TO DB
+            return redirect('history')
+    else:
+        form = forms.FuelQuoteForm()
     return render(request,'form.html',{'form':form})
 
 @login_required
