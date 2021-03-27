@@ -53,7 +53,7 @@ def form(request):
         form = forms.FuelQuoteForm(request.POST)
         if form.is_valid():
             # SAVE TO DB
-            return redirect('history')
+            return redirect('quote')
     else:
         form = forms.FuelQuoteForm()
     return render(request,'form.html',{'form':form})
@@ -64,4 +64,5 @@ def profile(request):
 def history(request):
     return render(request, 'fuelQuoteHistory.html')
 
-
+def quote(request):
+    return render(request,"quote.html")
