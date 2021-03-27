@@ -10,6 +10,7 @@ from .forms import registerForm
 from .import forms
 from django.template.loader import get_template
 from django.template import Context
+from .models import Register
 
 def home(request):
     return render(request,'index.html')
@@ -18,7 +19,10 @@ def signup(response):
     if response.method == "POST":
         form = registerForm(response.POST)
         if form.is_valid():
-            form.save()
+            user=form.cleaned_data['username']
+            passd=form.cleaned_data['password']
+            newPerson = Register(user,passd)
+            newPerson.save()
         return render(response,"index.html")
     else:
         form = registerForm()
