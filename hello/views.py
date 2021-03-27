@@ -37,8 +37,6 @@ def loginpage(request):
         password = request.POST.get('password')
         user = authenticate(request,username=username, password=password)
 
-        logging.debug("hello")
-
         if user is not None:
 
             login(request, user)
