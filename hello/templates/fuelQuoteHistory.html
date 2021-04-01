@@ -27,19 +27,19 @@
                         <th scope="col">Total Due</th>
                     </tr>
                 </thead>
+
                 <tbody>
+                    {% for post in posts %}
                     <tr>
-                        <!-- THIS ROW IS FOR INITIAL FORMATTING PURPOSES, WILL BE REMOVED LATER -->
-                        <td>10</td>
-                        <td>9002 Santa Clara Ave. Schenectady, NY 12302</td>
-                        <td>01/01/2000</td>
-                        <td>9.99</td>
-                        <td>99.90</td>
+                        <td>{{ post.gallonsReq }}</td>
+                        <td>{{ post.fullAddress }}</td>
+                        <td>{{ post.deliveryDate }}</td>
+                        <td>{{ post.pricePerGallon }}</td>
+                        <td>{{ post.totalDue }}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-
-            <div id="dummyEntry"> <button type="button">INSERT DUMMY ENTRY</button> </div>
 
             <!-- <script src="fuelQuoteHistory.js"></script> -->
             <script type="text/javascript" src="{% static 'fuelQuoteHistory.js' %}"></script>
