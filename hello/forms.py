@@ -4,12 +4,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .import models
 
-class profileManage(forms.Form):
-    fullName=forms.CharField(max_length=50)
-    address1=forms.CharField(max_length=100)
-    address2=forms.CharField(max_length=100,required=False)
-    city=forms.CharField(max_length=100)
-    states = forms.CharField(widget=USStateSelect)
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+# MODEL FORMS:
+
+class profileManage(forms.ModelForm):
+    class Meta:
+        model = models.Profile
+        fields = ['fullName','address1','address2','city','state','zipcode']
 
 class registerForm(UserCreationForm):
     class Meta:
@@ -19,5 +23,5 @@ class registerForm(UserCreationForm):
 class FuelQuoteForm(forms.ModelForm):
     class Meta:
         model = models.Quote
-        fields = ['gallonsReq','fullAddress','deliveryDate']
-
+        widgets = {'deliveryDate': DateInput()}
+        fields = ['gallonsReq', 'deliveryDate'] 
