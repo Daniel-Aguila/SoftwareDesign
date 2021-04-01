@@ -21,6 +21,16 @@
     <div>
         <button id="quoteOk">Ok</button>
     </div>
+
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
     <script type="text/javascript" src="{% static 'quote.js' %}"></script>
 </body>
 
