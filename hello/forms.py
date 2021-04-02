@@ -24,4 +24,4 @@ class FuelQuoteForm(forms.ModelForm):
     class Meta:
         model = models.Quote
         widgets = {'deliveryDate': DateInput()}
-        fields = ['gallonsReq', 'deliveryDate'] 
+        fields = ['gallonsReq', 'deliveryDate']
