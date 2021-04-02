@@ -1,5 +1,6 @@
 from django.db import models
 from django.db import connections
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -68,17 +69,15 @@ class Profile(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
     zipcode = models.PositiveIntegerField()
-    #username = models.ForeignKey('Register', default=None, on_delete=models.CASCADE, to_field='username')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.fullName
+        return f'{self.user.username} Profile'
 
 
 class Quote(models.Model):
     gallonsReq = models.PositiveIntegerField()
-    # fullAddress = models.ForeignKey('Profile', default=None, on_delete=models.CASCADE, to_field='address1')
     fullAddress = models.CharField(max_length=100)
-    # Need to link address with user profile, is charfield rn for testing
     deliveryDate = models.DateField()
     pricePerGallon = models.DecimalField(decimal_places=2, max_digits=5)
     totalDue = models.DecimalField(decimal_places=2, max_digits=20)
