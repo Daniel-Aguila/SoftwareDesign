@@ -9,10 +9,9 @@
             <div class="profile-box">
                 <div class="profile-manage">
                     <h1>Profile Management</h1>
-                    <form>
-                        {% csrf_token %}
+                    <form> {% csrf_token %}
                         {{ form.as_p }}
-                        <input type="submit" class="submit-btn">
+                        <input type="submit" value='Submit'>
                     </form>
                 </div>
             </div>
