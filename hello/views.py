@@ -72,7 +72,7 @@ def profile(request):
     if request.method == 'POST':
         # form = forms.profileManage(request.POST, instance=request.user.profile)
         form = forms.profileManage(request.POST)
-        if form.is_valid():
+        if response.method=="POST" and form.is_valid():
             newProfile = form.save(commit=False)
             newProfile.user = request.user
             newProfile.save()

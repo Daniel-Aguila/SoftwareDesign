@@ -7,38 +7,9 @@
     <body>
         <div class="background-pic">
             <div class="input-box">
-                <div class="button-box">
-                    <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
-                </div>
-
-                <form id="login" class="input-info" method="post">
-                    {% csrf_token %}
-                    <a href="{% url 'login' %}" class="submit-btn" name="submit">Login</a>
-                </form>
-                <form id="register" class="input-info" method="post">
-                    {% csrf_token %}
-                <a href="{% url 'signup' %}" class="submit-btn" name="submit">Sign Up</a>
-                </form>
+                <a href="{% url 'login' %}" id="login" class="submit-btn" name="submit">Login</a>
+                <a href="{% url 'signup' %}" id="signup" class="submit-btn" name="submit">Sign Up</a>
             </div>
         </div>
-        <script>
-            var x=document.getElementById("login");
-            var y=document.getElementById("register");
-            var z=document.getElementById("btn");
-
-            function register(){
-                x.style.left="-400px";
-                y.style.left="15px";
-                z.style.left="110px";
-            }
-
-            function login(){
-                x.style.left="0";
-                y.style.left="400px";
-                z.style.left="0";
-            }
-        </script>
     </body>
 </html>

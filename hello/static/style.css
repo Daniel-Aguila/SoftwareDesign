@@ -16,12 +16,14 @@
 .fuel-form-title{
     width: 1000px;
     background-color: rgba(0,0,0,0.6);
-    margin: auto;
+    margin:auto;
+    margin-top: 50px;
     color:#FFFFFF;
-    padding: 10px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
     text-align: center;
     border-radius: 15px 15px 0px 0px;
     font-size: 25px;
+    position:relative;
 }
 
 .fuel-form-div{
@@ -29,9 +31,9 @@
     width: 1000px;
     margin: auto;
 }
-    form{
-        padding: 10px;
-    }
+form{
+    padding: 10px;
+}
     
 
 .gallons-requested{
@@ -124,6 +126,7 @@
     font-weight: bold;
 }
 
+/*
 .buttons{
     margin-left: 85px;
     margin-top: 50px;
@@ -151,11 +154,37 @@
     font-size: 20px;
     font-weight: bold;
 }
+*/
 
+.form-btn{
+    text-decoration:none;
+    color:white;
+    text-align:center;
+    font:10px;
+    width:85%;
+    /*padding:10px 30px;*/
+    cursor:pointer;
+    display:block;
+    margin-top:50px;
+    background:linear-gradient(to right,lightseagreen,rgb(109, 223, 109));
+    border:0;
+    outline:none;
+    border-radius: 30px;
+    position:center;
+}
 
 .input-box{
     width:380px;
-    height: 430px;
+    height: 300px;
+    position:relative;
+    margin:6% auto;
+    background-color:rgba(135, 206, 235, 0.8);
+    padding:5px;
+}
+
+.signup-box{
+    width:380px;
+    height: 500px;
     position:relative;
     margin:6% auto;
     background-color:rgba(135, 206, 235, 0.8);
@@ -170,14 +199,12 @@
     border-radius:30px;
 }
 
-
-.toggle-btn{
-    padding:10px 30px;
-    cursor:pointer;
-    background: transparent;
-    border:0;
-    outline:none;
-    position:relative;
+h1{
+    text-align:center;
+    position: relative;
+    padding: 10px;
+    color:white;
+    text-shadow: 2px 2px #315253;
 }
 
 #btn{
@@ -192,15 +219,14 @@
 }
 
 .input-info{
-    top:80px;
     position:absolute;
     width:280px;
     transition:.5s;
     padding:50px;
+    padding-top: 10px;
 }
 
 .input-info p{
-    
     padding-top:20px;
     color:black;
 }
@@ -241,7 +267,7 @@
 /*profile management styling*/
 .profile-box{
     width:380px;
-    height: 800px;
+    height: 600px;
     position:relative;
     margin:6% auto;
     background-color:rgba(135, 206, 235, 0.8);

@@ -7,24 +7,23 @@
 </head>
 
 <body>
-    <div class="fuel-form-title">
-        {% block title %}<h1>Fuel Form</h1>{% endblock %}
-    </div>
-
     <div class="background-pic">
+        <div class="fuel-form-title">
+            {% block title %}<h1>Fuel Form</h1>{% endblock %}
+        </div>
         <div class="fuel-form-div">
             <form id="form-user" action="" method="post">{% csrf_token %}
+            
                 {{ form.as_p }}
 
 
                 <div class="form-box">
                     <h1 class="buttons">
-                        <button id="button-cancel">Cancel</button> <!-- Cancel button implement? -->
+                        <a href="{% url 'profile' %}" id="button-cancel" class="form-btn">Cancel</a> <!-- Cancel button implement? -->
                         <input id="button-send" type="submit" class="button-send" value="Send">
                     </h1>
                 </div>
             </form>
-
         </div>
     </div>
     <script type="text/javascript" src="{% static 'form.js' %}"></script>
