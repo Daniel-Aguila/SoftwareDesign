@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="background-pic">
+    <h2>You have been logged out</h2>
+    <div class="input-box">
+        <a href="{% url 'login' %}" id="login" class="submit-btn" name="submit">Login Again</a>
+    </div>
+</div>
+{% endblock content %}

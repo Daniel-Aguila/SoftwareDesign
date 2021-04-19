@@ -1,60 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
+<div class="quote-history">
+    <h1>Fuel Quote History</h1>
+    <table class="table" id="quoteTable">
+        <thead>
+            <tr>
+                <th scope="col">Gallons Requested</th>
+                <th scope="col">Delivery Address</th>
+                <th scope="col">Delivery Date</th>
+                <th scope="col">Price/Gallon</th>
+                <th scope="col">Total Due</th>
+            </tr>
+        </thead>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fuel Quote History</title>
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="background-pic">
-        <div class="quote-history">
-            <h1>Fuel Quote History</h1>
-            <table class="table" id="quoteTable">
-                <thead>
-                    <tr>
-                        <th scope="col">Gallons Requested</th>
-                        <th scope="col">Delivery Address</th>
-                        <th scope="col">Delivery Date</th>
-                        <th scope="col">Price/Gallon</th>
-                        <th scope="col">Total Due</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for post in posts %}
-                    <tr>
-                        <td>{{ post.gallonsReq }}</td>
-                        <td>{{ post.fullAddress }}</td>
-                        <td>{{ post.deliveryDate }}</td>
-                        <td>{{ post.pricePerGallon }}</td>
-                        <td>{{ post.totalDue }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-            <!-- <script src="fuelQuoteHistory.js"></script> -->
-            <script type="text/javascript" src="{% static 'fuelQuoteHistory.js' %}"></script>
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
-        </div>
-    </div>
-
-</body>
-
-</html>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{ post.gallonsReq }}</td>
+                <td>{{ post.fullAddress }}</td>
+                <td>{{ post.deliveryDate }}</td>
+                <td>{{ post.pricePerGallon }}</td>
+                <td>{{ post.totalDue }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
