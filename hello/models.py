@@ -63,13 +63,13 @@ class Register(models.Model):
 
 
 class Profile(models.Model):
-    fullName = models.CharField(max_length=50)
-    address1 = models.CharField(max_length=100, unique=True)
+    fullName = models.CharField(max_length=50, default='John Doe')
+    address1 = models.CharField(max_length=100, default='1234 Maple St')
     address2 = models.CharField(max_length=100, blank=True)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=2, choices=STATE_CHOICES)
-    zipcode = models.PositiveIntegerField()
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    city = models.CharField(max_length=100, default='Houston')
+    state = models.CharField(max_length=2, choices=STATE_CHOICES, default='TX')
+    zipcode = models.PositiveIntegerField(default=77592)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.user.username} Profile'

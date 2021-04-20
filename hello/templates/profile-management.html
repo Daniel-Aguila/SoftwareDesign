@@ -1,20 +1,15 @@
-<html>
-    <head>
-        <title>Profile Management</title>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    </head>
-    <body>
-        <div class="background-pic">
-            <div class="profile-box">
-                <div class="profile-manage">
-                    <h1>Profile Management</h1>
-                    <form> {% csrf_token %}
-                        {{ form.as_p }}
-                        <input type="submit" value='Submit'>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="profile-box">
+    <div class="profile-manage">
+        <h1>Profile Management</h1>
+        <form id="form-profile" action="" method="post"> {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value='Submit'>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

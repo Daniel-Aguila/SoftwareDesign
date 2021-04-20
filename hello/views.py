@@ -10,7 +10,7 @@ from .forms import registerForm
 from .import forms
 from django.template.loader import get_template
 from django.template import Context
-from .models import Register, Quote
+from .models import Register, Quote, Profile
 import logging
 
 
@@ -43,10 +43,13 @@ def loginpage(request):
         if user is not None:
 
             login(request, user)
-            return redirect('profile')
+            return redirect('home')
 
 
     return render(request,'login.html',{'form':form, 'title':'login'})
+
+def logoutpage(request):
+    logout(request)
 
 @login_required
 @csrf_protect
@@ -61,7 +64,7 @@ def form(request):
             newQuote.pricePerGallon = 1.50 # Hardcoded for now, implement pricing module
             newQuote.totalDue = newQuote.pricePerGallon * newQuote.gallonsReq
             newQuote.save()
-            return redirect('quote')
+            return redirect('history')
     else:
         form = forms.FuelQuoteForm()
     return render(request,'form.html',{'form':form})
@@ -70,15 +73,18 @@ def form(request):
 @csrf_protect
 def profile(request):
     if request.method == 'POST':
-        # form = forms.profileManage(request.POST, instance=request.user.profile)
-        form = forms.profileManage(request.POST)
-        if response.method=="POST" and form.is_valid():
+        # form = forms.profileManage(request.POST)
+        form = forms.profileManage(request.POST, instance=request.user.profile)
+        if form.is_valid():
             newProfile = form.save(commit=False)
             newProfile.user = request.user
             newProfile.save()
             return redirect('form')
     else:
-        form = forms.profileManage()
+        # if ("request.user.profile" in globals()):
+        #     form = forms.profileManage(instance=request.user.profile)
+        # else:
+        form = forms.profileManage(instance=request.user.profile)
     return render(request, 'profile-management.html',{'form':form})
 
 
@@ -87,6 +93,3 @@ def history(request):
         'posts': Quote.objects.all()
     }
     return render(request, 'fuelQuoteHistory.html', context)
-
-def quote(request):
-    return render(request,"quote.html")

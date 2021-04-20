@@ -46,38 +46,57 @@
 //document.addEventListener('DOMContentLoaded',init);
 
 // -----------
-let gallonsValue, addressValue, dateValue;
+// let gallonsValue, addressValue, dateValue;
 
-document.querySelector('#input-gallons-input').value = 0;
-const submit = document.querySelector('#button-send');
+// document.querySelector('#input-gallons-input').value = 0;
+// const submit = document.querySelector('#button-send');
 
-submit.addEventListener('click', function(e) {
-    e.preventDefault();
+// submit.addEventListener('click', function(e) {
+//     e.preventDefault();
   
-    let gallonsInput = document.querySelector('#input-gallons-input').value;
-    let dateInput = document.querySelector('#input-date-input').value; 
-    if (gallonsInput < 1)
-    {
-        alert('Please input valid number of gallons');
-        return;
-    }
-    else if (dateInput == "")
-    {
-        alert('Please select a delivery date');
-    }
+//     let gallonsInput = document.querySelector('#input-gallons-input').value;
+//     let dateInput = document.querySelector('#input-date-input').value; 
+//     if (gallonsInput < 1)
+//     {
+//         alert('Please input valid number of gallons');
+//         return;
+//     }
+//     else if (dateInput == "")
+//     {
+//         alert('Please select a delivery date');
+//     }
+//     else
+//     {
+//         gallonsValue = gallonsInput;    // load inputs
+//         addressValue = document.querySelector('#input-address-input').value;
+//         dateValue = document.querySelector('#input-date-input').value;
+
+//         let suggestedPrice = 9.99; // HARDCODED VALUE: REPLACE
+//         let totalDue = 99.90 // HARDCODED VALUE: REPLACE
+
+//         alert(`Suggested Price: ${suggestedPrice}
+//         Total Amount Due: ${totalDue}`);
+
+//         let historyRedirect = 'http://' + window.location.host + '/history';
+//         window.location.href = historyRedirect;
+//     }
+// })
+
+const getQuote = document.querySelector('#getQuote');
+const form = document.querySelector('#form-user');
+
+getQuote.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    let deliveryDateValue = document.querySelector('#id_deliveryDate').value;
+    let gallonsReqValue = document.querySelector('#id_gallonsReq').value;
+    if (deliveryDateValue == '' || gallonsReqValue == '')
+        alert('You must enter number of gallons AND delivery date.');
     else
     {
-        gallonsValue = gallonsInput;    // load inputs
-        addressValue = document.querySelector('#input-address-input').value;
-        dateValue = document.querySelector('#input-date-input').value;
-
-        let suggestedPrice = 9.99; // HARDCODED VALUE: REPLACE
-        let totalDue = 99.90 // HARDCODED VALUE: REPLACE
-
-        alert(`Suggested Price: ${suggestedPrice}
-        Total Amount Due: ${totalDue}`);
-
-        let historyRedirect = 'http://' + window.location.host + '/history';
-        window.location.href = historyRedirect;
+        let priceValue = 1.50; // HARDCODED, APPLY PRICING MODULE HERE
+        
+        document.querySelector('#price').value = priceValue; 
+        document.querySelector('#total').value = gallonsReqValue * priceValue;
     }
 })
