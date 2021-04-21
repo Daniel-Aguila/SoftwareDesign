@@ -2,10 +2,9 @@
 {% load static %}
 {% block content %}
     <div class="background-pic">
-        <div class="fuel-form-title">
-            {% block title %}<h1>Fuel Form</h1>{% endblock %}
-        </div>
         <div class="fuel-form-div">
+            {% block title %}<h1>Fuel Form</h1>{% endblock %}
+        
             <form id="form-user" action="" method="post">{% csrf_token %}
                 {{ form.as_p }}
                 <p><label for="address">Delivery Address</label>
@@ -14,13 +13,11 @@
                 <input type="text" value="" name="price" id="price" disabled></p>
                 <p><label for="total">Total Due</label>
                 <input type="text" value="" name="total" id="total" disabled></p>
-                <div class="form-box">
-                    <h1 class="buttons">
-                        <!-- <a href="{% url 'profile' %}" id="button-cancel" class="form-btn">Cancel</a> Cancel button implement? -->
-                        <a href="" class="form-btn" id="getQuote">Get Quote</a>
-                        <input id="button-send" type="submit" class="form-btn" value="Submit Quote">
-                    </h1>
-                </div>
+                
+                <!-- <a href="{% url 'profile' %}" id="button-cancel" class="form-btn">Cancel</a> Cancel button implement? -->
+                <a href="" class="form-btn" id="getQuote">Get Quote</a>
+                <input id="button-send" type="submit" class="form-btn" value="Submit Quote">
+                  
             </form>
         </div>
     </div>
