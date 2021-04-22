@@ -64,7 +64,8 @@ def form(request):
             newQuote.fullAddress = fullAddress
             newQuote.location = currUser.state
             newQuote.pricePerGallon = 1.50 # Hardcoded for now, implement pricing module
-            newQuote.totalDue = pricing.totalAmountDue()
+            priceModule = pricing(gallonsN=newQuote.gallonsReq, location=request.user.profile.state, rate_history=True)
+            newQuote.totalDue = priceModule.totalAmountDue()
             newQuote.save()
 
             return redirect('history')

@@ -93,27 +93,27 @@ class pricing():
         self.rate_history = rate_history
 
     def suggestedPrice(self):
-        self.currentPrice = 1.50 + margin()
+        self.currentPrice = 1.500 + self.margin()
         return self.currentPrice
 
     def margin(self):
         if self.location == "Texas":
-            location_factor = 0.02
+            location_factor = 0.020
         else:
-            location_factor = 0.04
+            location_factor = 0.040
         
         if self.rate_history == True:
-            rate_history_factor = 0.01
+            rate_history_factor = 0.010
         else:
-            rate_history_factor = 0.00
-        if self.gallonsTotal > 1000:
-            gallons_requested_factor = 0.02
+            rate_history_factor = 0.000
+        if self.gallonsTotal >= 1000:
+            gallons_requested_factor = 0.020
         else: 
-            gallons_requested_factor = 0.03
+            gallons_requested_factor = 0.030
         
-        return 1.50 * (location_factor - rate_history_factor + gallons_requested_factor + 0.10)
+        return 1.50 * (location_factor - rate_history_factor + gallons_requested_factor + 0.100)
     def totalAmountDue(self):
-        return self.gallonsTotal * suggestedPrice()
+        return self.gallonsTotal * self.suggestedPrice()
 
 
     
