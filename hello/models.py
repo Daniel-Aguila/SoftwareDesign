@@ -93,8 +93,8 @@ class pricing():
         self.rate_history = rate_history
 
     def suggestedPrice(self):
-        self.currentPrice = 1.500 + self.margin()
-        return self.currentPrice
+        return 1.500 + self.margin()
+        
 
     def margin(self):
         if self.location == "Texas":
