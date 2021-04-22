@@ -67,9 +67,8 @@ def form(request):
             newQuote.pricePerGallon = priceModule.suggestedPrice()
             newQuote.totalDue = priceModule.totalAmountDue()
             newQuote.save()
-            print(currUser.hasHistory)
             if not currUser.hasHistory:
-                currUser.hasHistory = True
+                currUser.hasHistory=True  # user profile now has history
                 currUser.save()
             return redirect('history')
     else:
