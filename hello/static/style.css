@@ -181,11 +181,12 @@ form{
 
 .form-btn:hover{
     text-decoration:none;
+    color:black
 }
 
 .input-box{
     width:380px;
-    height: 380px;
+    height: 450px;
     position:relative;
     margin:6% auto;
     background-color:rgba(135, 206, 235, 0.8);
@@ -212,6 +213,16 @@ form{
 h1{
     text-align:center;
     position: relative;
+    padding: 10px;
+    color:white;
+    text-shadow: 2px 2px #315253;
+}
+
+.home h1{
+    margin-top: 150px;
+    margin-left: 50px;
+    text-align:center;
+    position: fixed;
     padding: 10px;
     color:white;
     text-shadow: 2px 2px #315253;
