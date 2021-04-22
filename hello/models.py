@@ -97,7 +97,7 @@ class pricing():
         
 
     def margin(self):
-        if self.location == "Texas":
+        if self.location == "TX":
             location_factor = 0.020
         else:
             location_factor = 0.040
