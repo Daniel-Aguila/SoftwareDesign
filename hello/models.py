@@ -112,6 +112,8 @@ class pricing():
             gallons_requested_factor = 0.03
         
         return 1.50 * (location_factor - rate_history_factor + gallons_requested_factor + 0.10)
+    def totalAmountDue(self):
+        return self.gallonsTotal * suggestedPrice()
 
 
     
