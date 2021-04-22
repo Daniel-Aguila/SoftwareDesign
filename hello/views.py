@@ -10,7 +10,7 @@ from .forms import registerForm
 from .import forms
 from django.template.loader import get_template
 from django.template import Context
-from .models import Register, Quote, Profile
+from .models import Register, Quote, Profile, pricing
 import logging
 
 
@@ -48,8 +48,9 @@ def loginpage(request):
 
     return render(request,'login.html',{'form':form, 'title':'login'})
 
-def logoutpage(request):
-    logout(request)
+##
+##def logoutpage(request):
+##    logout(request)
 
 @login_required
 @csrf_protect
@@ -61,9 +62,11 @@ def form(request):
             currUser = request.user.profile
             fullAddress = f'{currUser.address1}, {currUser.city}, {currUser.state} {currUser.zipcode}'
             newQuote.fullAddress = fullAddress
+            newQuote.location = currUser.state
             newQuote.pricePerGallon = 1.50 # Hardcoded for now, implement pricing module
-            newQuote.totalDue = newQuote.pricePerGallon * newQuote.gallonsReq
+            newQuote.totalDue = pricing.suggestedPrice(newQuote.gallonsReq,newQuote.location)
             newQuote.save()
+
             return redirect('history')
     else:
         form = forms.FuelQuoteForm()
