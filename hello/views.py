@@ -11,7 +11,7 @@ from .import forms
 from django.template.loader import get_template
 from django.template import Context
 from .models import Register, Quote, Profile, pricing
-import logging
+import logging, json
 
 
 def home(request):
@@ -67,7 +67,8 @@ def form(request):
             newQuote.pricePerGallon = priceModule.suggestedPrice()
             newQuote.totalDue = priceModule.totalAmountDue()
             newQuote.save()
-
+            if not request.user.profile.hasHistory:
+                request.user.profile.hasHistory = True # user profile now has history
             return redirect('history')
     else:
         form = forms.FuelQuoteForm()
@@ -91,7 +92,7 @@ def profile(request):
         form = forms.profileManage(instance=request.user.profile)
     return render(request, 'profile-management.html',{'form':form})
 
-
+@login_required
 def history(request):
     context = {
         'posts': Quote.objects.all()

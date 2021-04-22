@@ -70,6 +70,7 @@ class Profile(models.Model):
     state = models.CharField(max_length=2, choices=STATE_CHOICES, default='TX')
     zipcode = models.PositiveIntegerField(default=77592)
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    hasHistory = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} Profile'

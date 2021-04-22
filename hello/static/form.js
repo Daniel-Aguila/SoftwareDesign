@@ -95,8 +95,20 @@ getQuote.addEventListener('click', function(e) {
     else
     {
         let priceValue = 1.50; // HARDCODED, APPLY PRICING MODULE HERE
+
+        // function getPriceValue(){
+        //     $.ajax({
+        //         url: "/form",
+        //         type: "POST",
+        //         dataType: "json",
+        //         success: function(data){
+        //             $(test).replaceWith
+        //         }
+        //     });
+        // }
         
         document.querySelector('#price').value = priceValue; 
         document.querySelector('#total').value = gallonsReqValue * priceValue;
     }
 })
+
