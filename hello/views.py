@@ -73,7 +73,11 @@ def form(request):
             return redirect('history')
     else:
         form = forms.FuelQuoteForm()
-    return render(request,'form.html',{'form':form})
+        data = {
+            'state': request.user.profile.state,
+            'ratehistory': request.user.profile.hasHistory
+        }
+    return render(request,'form.html',{'form':form, 'data':data})
 
 @login_required
 @csrf_protect
